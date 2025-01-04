@@ -27,7 +27,7 @@ public class PushConsumer {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    public static void main( String[] args ) {
+    public static void main(String[] args) throws JsonProcessingException {
         // Настройка консьюмера
         Properties props = new Properties();
         props.put(BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);  // Адрес брокера Kafka
@@ -39,7 +39,7 @@ public class PushConsumer {
         props.put(SESSION_TIMEOUT_MS_CONFIG, 6000);           // Время ожидания активности от консьюмера
 
         // Создание консьюмера
-        try(KafkaConsumer<String, UserMessage> consumer = new KafkaConsumer<>(props)) {
+        try (KafkaConsumer<String, UserMessage> consumer = new KafkaConsumer<>(props)) {
             // Подписка на топик
             consumer.subscribe(Collections.singletonList(TOPIC_NAME));
 
@@ -48,14 +48,15 @@ public class PushConsumer {
                 try {
                     ConsumerRecords<String, UserMessage> records = consumer.poll(Duration.ofMillis(POLL_DELAY_MS));  // Получение сообщений
                     for (ConsumerRecord<String, UserMessage> record : records) {
-                        logger.info("Получено сообщение: message={}, key={}, partition={}, offset={}",
+                        logger.info("message: {}, key: {}, partition: {}, offset: {}",
                                 objectMapper.writeValueAsString(record.value()), record.key(), record.partition(), record.offset());
                     }
-                }catch (RecordDeserializationException exception){
-                    logger.error("Ошибка десериализации: {}", exception.getMessage());
-                } catch (JsonProcessingException e) {
-                    throw new RuntimeException(e);
+                } catch (RecordDeserializationException e) {
+                    logger.error("Ошибка десериализации! partition: {}, offset: {}", e.topicPartition().partition(), e.offset());
+                    // Пропустить проблемное сообщение и продолжить
+                    consumer.seek(e.topicPartition(), e.offset() + 1);
                 }
+
             }
         }
     }

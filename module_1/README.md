@@ -33,6 +33,7 @@ docker exec <container_id> /opt/bitnami/kafka/bin/kafka-topics.sh --create --top
 #### Pull-Consumer
 - Ожидает, пока накопится 10 Кб данных или пройдет 10 секунд.
 - После этого выводит все накопленные сообщения в лог.
+- При ошибке десериализации выводит сообщение в лог и пропускает сообщение
 
 Для его запуска выполните команду:
 
@@ -42,6 +43,7 @@ java -jar pull-consumer/target/pull-consumer-1.0-jar-with-dependencies.jar
 #### Push-Consumer
 - Немедленно забирает сообщения из топика, как только они становятся доступными.
 - Каждое полученное сообщение выводится в лог.
+- При ошибке десериализации выводит сообщение в лог и пропускает сообщение
 
 Для его запуска выполните команду:
 
@@ -51,9 +53,19 @@ java -jar push-consumer/target/push-consumer-1.0-jar-with-dependencies.jar
 #### Producer
 - Отправляет сообщения в топик message-topic каждую секунду.
 - Каждое отправленное сообщение выводится в лог. 
+- Каждое 25е сообщение невалидно для десериализации.
 
 Для его запуска выполните команду:
 
 ```
 java -jar producer/target/producer-1.0-jar-with-dependencies.jar
 ```
+
+### Дополнение
+Получить подробную информацию по топику можно командой:
+```
+docker exec <container_id> /opt/bitnami/kafka/bin/kafka-topics.sh --describe --topic message-topic --bootstrap-server localhost:9092
+```
+Замените `<container_id>` на идентификатор контейнера Kafka, который можно узнать с помощью команды `docker ps`.
+
+Kafka UI доступна по адресу `localhost:8080`

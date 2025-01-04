@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Properties;
 
 import static org.apache.kafka.clients.producer.ProducerConfig.*;
+import static org.apache.kafka.common.config.TopicConfig.MIN_IN_SYNC_REPLICAS_CONFIG;
 
 public class Producer {
 
@@ -30,14 +31,18 @@ public class Producer {
         properties.put(BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
         properties.put(KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         properties.put(VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        properties.put(ACKS_CONFIG, "all"); // Для синхронной репликации
+        properties.put(RETRIES_CONFIG, 3); // Количество попыток при ошибке
+        properties.put(MIN_IN_SYNC_REPLICAS_CONFIG, 2); // Минимальное количество синхронных реплик
 
         // Создание продюсера
         try (KafkaProducer<String, String> producer = new KafkaProducer<>(properties)) {
-            int messageNo = 0;
+            int messageNo = 1;
             while (messageNo < 1000) {
                 String key = "key-%s".formatted(messageNo % 3);
+                // Каждое 25е сообщение не пройдет десериализацию
                 String message =
-//                        messageNo == messageNo % 15 == 0 ? "Failed deserialize" :
+                        messageNo % 25 == 0 ? "Failed deserialize" :
                         objectMapper.writeValueAsString(new UserMessage(messageNo, "Hi from user-" + messageNo));
 
                 // Отправка сообщения
