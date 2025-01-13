@@ -1,4 +1,4 @@
-package com.chupakhin.deserializer;
+package com.chupakhin.serde;
 
 import com.chupakhin.dto.UserMessage;
 import com.fasterxml.jackson.databind.ObjectMapper;

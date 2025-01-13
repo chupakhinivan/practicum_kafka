@@ -3,19 +3,18 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.chupakhin</groupId>
-        <artifactId>practicum_kafka</artifactId>
+        <artifactId>module_1</artifactId>
         <version>1.0</version>
     </parent>
 
-    <artifactId>module_1</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>common</artifactId>
+    <packaging>jar</packaging>
 
-    <name>module_1</name>
+    <name>common</name>
     <url>http://maven.apache.org</url>
-    <modules>
-        <module>producer</module>
-        <module>pull-consumer</module>
-        <module>push-consumer</module>
-        <module>common</module>
-    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
 </project>
