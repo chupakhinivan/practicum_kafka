@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: kafka-streams-app
+  kafka:
+    bootstrap-servers: localhost:9094
+
+kafka:
+  topics:
+    messages: messages-topic
+    dirty-messages: dirty-messages-topic
+    block-user-event: block-user-event-topic
+    adult-words: adult-words-topic
+  stores:
+    blocked-users: blocked-users-store
+    adult-words: adult-words-store
+
+init-data:
+  adult-word-marker: forbidden
+  adult-words:
+    ипотека,
+    кредит,
+    инфляция,
+    дефолт,
+    кризис
+
+acceptable-violation-count: 3
+
+logging:
+  level:
+    com.chupakhin.module_2: info
+    root: error

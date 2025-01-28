@@ -10,8 +10,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>module_1</module>
+        <module>module_2</module>
     </modules>
-
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

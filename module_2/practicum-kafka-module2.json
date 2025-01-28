@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "1d97579f-cf73-4565-b356-b3f61658837d",
+		"name": "practicum-kafka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "6938912"
+	},
+	"item": [
+		{
+			"name": "Отправить сообщение",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"senderUser\": \"Сотрудник банка\",\n   \"recipientUser\": \"Вовочка\",\n   \"message\": \"Добрый вечер\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/message/send"
+			},
+			"response": []
+		},
+		{
+			"name": "Добавить новые запрещенные слова",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"сделал\", \"уроки\"]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/adult-words"
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список запрещенных слов",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/adult-words"
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить из списка запрещенных слов",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"сделал\"]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/adult-words"
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список заблокированных пользователей для всех пользователям",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/blocked-users"
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список заблокированных пользователей для конкретного пользователя",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/blocked-users/Вовочка"
+			},
+			"response": []
+		}
+	]
+}
