@@ -1,0 +1,10 @@
+{
+  "name": "prometheus-connector",
+  "config": {
+    "topics": "metrics-topic",
+    "prometheus.listener.url": "http://localhost:8080/metrics",
+    "tasks.max": "1",
+    "connector.class": "com.chupakhin.PrometheusSinkConnector",
+    "value.converter": "org.apache.kafka.connect.storage.StringConverter"
+  }
+}
