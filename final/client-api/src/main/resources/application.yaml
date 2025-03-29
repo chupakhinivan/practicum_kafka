@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: client-api
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:29092, localhost:29093, localhost:29094}
+    producer:
+      bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:29092, localhost:29093, localhost:29094}
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+store:
+  products:
+    path: ${PRODUCTS_PATH:/home/ichupakhin/IdeaProjects/practicum_kafka/final/infra/data/products.txt}
+  recommendations:
+    path: ${RECOMMENDATIONS_PATH:/home/ichupakhin/IdeaProjects/practicum_kafka/final/infra/data/recommendations.txt}
+
+kafka:
+  topics:
+    search: search-topic
+    recommendation: recommendation-topic

@@ -13,6 +13,7 @@
         <module>module_2</module>
         <module>module_3</module>
         <module>module_5</module>
+        <module>final</module>
     </modules>
 
     <properties>

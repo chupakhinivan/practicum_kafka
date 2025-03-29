@@ -7,3 +7,4 @@
 ## [Третий модуль](./module_3/README.md)
 ## [Четвертый модуль](./module_4/README.md)
 ## [Пятый модуль](./module_5/README.md)
+## [Финальный проект](./final/README.md)

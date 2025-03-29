@@ -1,0 +1,30 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: product-filter
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:29092, localhost:29093, localhost:29094}
+
+kafka:
+  topics:
+    source-products: products-topic
+    filter-products: filter-products-topic
+    adult-products: adult-products-topic
+  stores:
+    adult-products: adult-products-store
+
+init-data:
+  adult-product-marker: forbidden
+  adult-products:
+    Вейп,
+    Сигареты,
+    Алкоголь,
+    Виски,
+    Пиво
+
+#logging:
+#  level:
+#    com.chupakhin.module_2: info
+#    root: error

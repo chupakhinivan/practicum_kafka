@@ -1,0 +1,262 @@
+[
+  {
+    "product_id": "12345",
+    "name": "Умные часы",
+    "description": "Умные часы с функцией мониторинга здоровья, GPS и уведомлениями.",
+    "price": {
+      "amount": 4999.99,
+      "currency": "RUB"
+    },
+    "category": "Электроника",
+    "brand": "XYZ",
+    "stock": {
+      "available": 150,
+      "reserved": 20
+    },
+    "sku": "XYZ-12345",
+    "tags": ["умные часы", "гаджеты", "технологии"],
+    "images": [
+      {
+        "url": "https://example.com/images/product1.jpg",
+        "alt": "Умные часы XYZ - вид спереди"
+      },
+      {
+        "url": "https://example.com/images/product1_side.jpg",
+        "alt": "Умные часы XYZ - вид сбоку"
+      }
+    ],
+    "specifications": {
+      "weight": "50g",
+      "dimensions": "42mm x 36mm x 10mm",
+      "battery_life": "24 hours",
+      "water_resistance": "IP68"
+    },
+    "created_at": "2023-10-01T12:00:00Z",
+    "updated_at": "2023-10-10T15:30:00Z",
+    "index": "products",
+    "store_id": "store_001"
+  },
+  {
+    "product_id": "12346",
+    "name": "Смартфон ABC",
+    "description": "Флагманский смартфон с 6.7-дюймовым экраном и тройной камерой.",
+    "price": {
+      "amount": 79999.99,
+      "currency": "RUB"
+    },
+    "category": "Электроника",
+    "brand": "ABC",
+    "stock": {
+      "available": 50,
+      "reserved": 10
+    },
+    "sku": "ABC-12346",
+    "tags": ["смартфоны", "флагманы", "гаджеты"],
+    "images": [
+      {
+        "url": "https://example.com/images/product2.jpg",
+        "alt": "Смартфон ABC - вид спереди"
+      },
+      {
+        "url": "https://example.com/images/product2_side.jpg",
+        "alt": "Смартфон ABC - вид сбоку"
+      }
+    ],
+    "specifications": {
+      "weight": "190g",
+      "dimensions": "160mm x 75mm x 8mm",
+      "battery_life": "48 hours",
+      "water_resistance": "IP67"
+    },
+    "created_at": "2023-10-02T12:00:00Z",
+    "updated_at": "2023-10-11T15:30:00Z",
+    "index": "products",
+    "store_id": "store_001"
+  },
+  {
+    "product_id": "34567",
+    "name": "Виски",
+    "description": "Односолодовый шотландский виски с выдержкой 12 лет, произведенный в долине Спейсайд.",
+    "price": {
+      "amount": 12999.99,
+      "currency": "RUB"
+    },
+    "category": "Виски",
+    "brand": "Macallan",
+    "stock": {
+      "available": 50,
+      "reserved": 10
+    },
+    "sku": "MACC-12Y-001",
+    "tags": ["виски", "алкоголь", "напитки"],
+    "images": [
+      {
+        "url": "https://example.com/images/product3.jpg",
+        "alt": "Виски Macallan 12 Years Old - бутылка"
+      },
+      {
+        "url": "https://example.com/images/product3_side.jpg",
+        "alt": "Виски Macallan 12 Years Old - этикетка"
+      }
+    ],
+    "specifications": {
+      "volume": "0.7L",
+      "alcohol_content": "40%",
+      "age": "12 years",
+      "region": "Speyside"
+    },
+    "created_at": "2023-10-01T12:00:00Z",
+    "updated_at": "2023-10-10T15:30:00Z",
+    "index": "products",
+    "store_id": "store_001"
+  },
+  {
+    "product_id": "56789",
+    "name": "Сигареты",
+    "description": "Легкие сигареты с фильтром, содержащие ацетатный фильтр и ароматизаторы.",
+    "price": {
+      "amount": 199.99,
+      "currency": "RUB"
+    },
+    "category": "Сигареты",
+    "brand": "Parliament",
+    "stock": {
+      "available": 1000,
+      "reserved": 50
+    },
+    "sku": "PARL-AQB-001",
+    "tags": ["сигареты", "Parliament", "легкие"],
+    "images": [
+      {
+        "url": "https://example.com/images/parliament-aqua-blue.jpg",
+        "alt": "Сигареты Parliament Aqua Blue"
+      },
+      {
+        "url": "https://example.com/images/parliament-aqua-blue-side.jpg",
+        "alt": "Сигареты Parliament Aqua Blue - боковая сторона"
+      }
+    ],
+    "specifications": {
+      "tar_content": "6 мг",
+      "nicotine_content": "0.6 мг",
+      "carbon_monoxide": "6 мг",
+      "pack_size": "20 шт"
+    },
+    "created_at": "2023-10-01T12:00:00Z",
+    "updated_at": "2023-10-10T15:30:00Z",
+    "index": "products",
+    "store_id": "store_001"
+  },
+  {
+    "product_id": "67890",
+    "name": "Сигареты",
+    "description": "Суперлегкие сигареты с ацетатным фильтром и технологией охлаждения.",
+    "price": {
+      "amount": 189.99,
+      "currency": "RUB"
+    },
+    "category": "Сигареты",
+    "brand": "Winston",
+    "stock": {
+      "available": 800,
+      "reserved": 30
+    },
+    "sku": "WINS-XST-002",
+    "tags": ["сигареты", "Winston", "суперлегкие"],
+    "images": [
+      {
+        "url": "https://example.com/images/winston-xstyle-silver.jpg",
+        "alt": "Сигареты Winston XStyle Silver"
+      },
+      {
+        "url": "https://example.com/images/winston-xstyle-silver-side.jpg",
+        "alt": "Сигареты Winston XStyle Silver - боковая сторона"
+      }
+    ],
+    "specifications": {
+      "tar_content": "4 мг",
+      "nicotine_content": "0.4 мг",
+      "carbon_monoxide": "4 мг",
+      "pack_size": "20 шт"
+    },
+    "created_at": "2023-10-01T12:00:00Z",
+    "updated_at": "2023-10-10T15:30:00Z",
+    "index": "products",
+    "store_id": "store_001"
+  },
+  {
+    "product_id": "123456",
+    "name": "Комплект постельного белья La Prima",
+    "description": "Комплект постельного белья из египетского хлопка с вышивкой, 100% хлопок, плотность 400 ТС.",
+    "price": {
+      "amount": 14999.99,
+      "currency": "RUB"
+    },
+    "category": "Товары для дома",
+    "brand": "La Prima",
+    "stock": {
+      "available": 50,
+      "reserved": 10
+    },
+    "sku": "LP-BED-001",
+    "tags": ["постельное белье", "хлопок", "люкс"],
+    "images": [
+      {
+        "url": "https://example.com/images/la-prima-bed-set.jpg",
+        "alt": "Комплект постельного белья La Prima"
+      },
+      {
+        "url": "https://example.com/images/la-prima-bed-set-detail.jpg",
+        "alt": "Деталь вышивки комплекта постельного белья La Prima"
+      }
+    ],
+    "specifications": {
+      "size": "King Size",
+      "material": "100% Egyptian cotton",
+      "thread_count": "400",
+      "color": "Ivory",
+      "set_includes": "1 пододеяльник, 2 наволочки, 1 простыня"
+    },
+    "created_at": "2023-10-01T12:00:00Z",
+    "updated_at": "2023-10-10T15:30:00Z",
+    "index": "products",
+    "store_id": "store_001"
+  },
+  {
+    "product_id": "234567",
+    "name": "Набор посуды 21maison Sakura",
+    "description": "Коллекция костяного фарфора с ручной росписью в японском стиле.",
+    "price": {
+      "amount": 9999.99,
+      "currency": "RUB"
+    },
+    "category": "Товары для дома",
+    "brand": "21maison",
+    "stock": {
+      "available": 30,
+      "reserved": 5
+    },
+    "sku": "21M-SAK-001",
+    "tags": ["посуда", "фарфор", "японский стиль"],
+    "images": [
+      {
+        "url": "https://example.com/images/21maison-saka-set.jpg",
+        "alt": "Набор посуды 21maison Sakura"
+      },
+      {
+        "url": "https://example.com/images/21maison-saka-set-detail.jpg",
+        "alt": "Деталь росписи набора посуды 21maison Sakura"
+      }
+    ],
+    "specifications": {
+      "material": "Bone china",
+      "set_includes": "6 тарелок обеденных, 6 тарелок десертных, 6 чашек с блюдцами",
+      "diameter": "23 см",
+      "care": "Dishwasher safe, microwave safe"
+    },
+    "created_at": "2023-10-01T12:00:00Z",
+    "updated_at": "2023-10-10T15:30:00Z",
+    "index": "products",
+    "store_id": "store_001"
+  }
+]
