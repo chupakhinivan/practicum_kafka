@@ -25,9 +25,7 @@ import static org.apache.spark.sql.functions.lit;
 
 public class App {
 
-//    private static final String BOOTSTRAP_SERVERS = "localhost:29092,localhost:29093,localhost:29094";
-    private static final String BOOTSTRAP_SERVERS = System.getenv("BOOTSTRAP_SERVERS") != null ?
-        System.getenv("BOOTSTRAP_SERVERS") : "localhost:29092,localhost:29093,localhost:29094";
+    private static final String BOOTSTRAP_SERVERS = "kafka-1:9092, kafka-2:9093, kafka-3:9094";
     private static final String SEARCH_TOPIC = "search-topic";
     private static final String RECOMMENDATION_TOPIC = "recommendation-topic";
 
@@ -43,9 +41,7 @@ public class App {
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
         consumer.subscribe(Collections.singletonList(SEARCH_TOPIC));
 
-//        String hdfsUri = "hdfs://localhost:9000";
-        String hdfsUrlProp = System.getenv("HDFS_URL");
-        String hdfsUri = hdfsUrlProp != null ? hdfsUrlProp : "hdfs://localhost:9000";
+        String hdfsUri = "hdfs://hadoop-namenode:9000";
         Configuration conf = new Configuration();
         conf.set("fs.defaultFS", hdfsUri);
 
@@ -79,7 +75,8 @@ public class App {
     }
 
     private static void processWithSpark(String hdfsUri, String key, String path) {
-        SparkConf sparkConf = new SparkConf().setAppName("KafkaHdfsSparkConsumer").setMaster("local[*]");
+        SparkConf sparkConf = new SparkConf()
+                .setAppName("KafkaHdfsSparkConsumer");
         try (JavaSparkContext sc = new JavaSparkContext(sparkConf)) {
             JavaRDD<String> hdfsData = sc.textFile(hdfsUri + path);
             // Преобразуем JavaRDD в Dataset

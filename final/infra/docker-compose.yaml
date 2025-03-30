@@ -226,6 +226,8 @@ services:
     environment:
       SPARK_MODE: master
       SPARK_MASTER_HOST: spark-master
+    volumes:
+      - ../analytics/target/analytics-1.0-jar-with-dependencies.jar:/app/app.jar
 
   # Apache Spark worker node №1
   spark-worker-1:
@@ -238,6 +240,8 @@ services:
     environment:
       SPARK_MODE: worker
       SPARK_MASTER_URL: spark://spark-master:7077
+    volumes:
+      - ../analytics/target/analytics-1.0-jar-with-dependencies.jar:/app/app.jar
 
   # Apache Spark worker node №2
   spark-worker-2:
@@ -250,6 +254,8 @@ services:
     environment:
       SPARK_MODE: worker
       SPARK_MASTER_URL: spark://spark-master:7077
+    volumes:
+      - ../analytics/target/analytics-1.0-jar-with-dependencies.jar:/app/app.jar
 
 
   shop-api:

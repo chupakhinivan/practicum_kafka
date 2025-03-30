@@ -19,15 +19,17 @@ docker-compose up -d
 ```
 Эта команда запустит все необходимые сервисы в фоновом режиме.
 
-##### 3. Запуск аналитического модуля
-После того, как все сервисы запустятся, в IDE нужно запустить модуль [analytics](./analytics/src/main/java/com/chupakhin/App.java) 
-В docker-compose не получилось из-за
+##### 3. Деплой в spark cluster
+После того, как все сервисы запустятся, зайти в контейнер `spark-master` и выполнить команду 
 
 ```
-org.apache.spark.sql.AnalysisException:  Failed to find data source: kafka. Please deploy the application as per the deployment section of "Structured Streaming + Kafka Integration Guide".
+spark-submit \
+--class com.chupakhin.App \
+--master spark://spark-master:7077 \
+--packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.2 \
+--deploy-mode cluster \
+/app/app.jar
 ```
-
-При локальном запуске такой ошибки нет
 
 ##### 4. Создание коннекторов
 
